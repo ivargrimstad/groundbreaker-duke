@@ -303,6 +303,79 @@
             </build>
         </profile>
 
+        <profile>
+            <id>tomee</id>
+
+            <properties>
+                <version.tomee>7.1.0</version.tomee>
+                <assembly.file.postfix>tomee</assembly.file.postfix>
+            </properties>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.tomee.maven</groupId>
+                        <artifactId>tomee-maven-plugin</artifactId>
+                        <version>7.1.0</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <phase>package</phase>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <context>ROOT</context>
+                            <tomeeVersion>${version.tomee}</tomeeVersion>
+                            <tomeeClassifier>microprofile</tomeeClassifier>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>io.fabric8</groupId>
+                        <artifactId>docker-maven-plugin</artifactId>
+                        <version>${version.docker-maven-plugin}</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>build</goal>
+                                </goals>
+                                <phase>install</phase>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <verbose>true</verbose>
+                            <images>
+                                <image>
+                                    <alias>${project.artifactId}-tomee</alias>
+                                    <name>ivargrimstad/${project.artifactId}:tomee</name>
+                                    <build>
+                                        <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
+                                        <from>openjdk:8-jre</from>
+                                        <assembly>
+                                            <basedir>/opt/tomee/deployments</basedir>
+                                            <inline>
+                                                <files>
+                                                    <file>
+                                                        <source>${project.basedir}/target/dukes-stone-processor-exec.jar</source>
+                                                    </file>
+                                                </files>
+                                            </inline>
+                                        </assembly>
+                                        <entryPoint>
+                                            <arg>java</arg>
+                                            <arg>-jar</arg>
+                                            <arg>/opt/tomee/deployments/dukes-stone-processor-exec.jar</arg>
+                                        </entryPoint>
+                                    </build>
+                                </image>
+                            </images>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
     </profiles>
 
 </project>
