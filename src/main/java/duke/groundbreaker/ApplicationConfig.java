@@ -1,4 +1,4 @@
-package eu.agilejava.duke;
+package duke.groundbreaker;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

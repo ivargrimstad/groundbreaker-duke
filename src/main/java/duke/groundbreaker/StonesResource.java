@@ -1,7 +1,6 @@
-package eu.agilejava.duke;
+package duke.groundbreaker;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
-import org.eclipse.microprofile.metrics.annotation.Metered;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;

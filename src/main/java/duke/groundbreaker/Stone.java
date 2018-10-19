@@ -1,4 +1,4 @@
-package eu.agilejava.duke;
+package duke.groundbreaker;
 
 public class Stone {
 
