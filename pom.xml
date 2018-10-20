@@ -321,14 +321,6 @@
                 <microprofile.version>1.3</microprofile.version>
             </properties>
 
-            <dependencies>
-                <dependency>
-                    <groupId>org.apache.geronimo.config</groupId>
-                    <artifactId>geronimo-config-impl</artifactId>
-                    <version>1.1</version>
-                </dependency>
-            </dependencies>
-
             <build>
                 <plugins>
                     <plugin>
@@ -337,7 +329,7 @@
                         <version>8.0.0-M1</version>
                         <configuration>
                             <warFile>${project.build.directory}/${project.build.finalName}.war</warFile>
-                            <tomeeClassifier>webprofile</tomeeClassifier>
+                            <tomeeClassifier>microprofile</tomeeClassifier>
                         </configuration>
                         <executions>
                             <execution>
