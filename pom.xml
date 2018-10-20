@@ -14,6 +14,7 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <version.docker-maven-plugin>0.24.0</version.docker-maven-plugin>
+        <version.microprofile>1.4</version.microprofile>
     </properties>
 
     <build>
@@ -35,7 +36,7 @@
         <dependency>
             <groupId>org.eclipse.microprofile</groupId>
             <artifactId>microprofile</artifactId>
-            <version>1.4</version>
+            <version>${version.microprofile}</version>
             <type>pom</type>
             <scope>provided</scope>
         </dependency>
@@ -94,7 +95,7 @@
                             <images>
                                 <image>
                                     <alias>${project.artifactId}-thorntail</alias>
-                                    <name>ivargrimstad/${project.artifactId}:thorntail</name>
+                                    <name>groundbreaker-duke/${project.artifactId}:thorntail</name>
                                     <build>
                                         <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
                                         <from>jboss/base-jdk:8</from>
@@ -137,8 +138,6 @@
 
         <profile>
             <id>liberty</id>
-            <properties>
-            </properties>
 
             <build>
                 <plugins>
@@ -212,7 +211,7 @@
                             <images>
                                 <image>
                                     <alias>${project.artifactId}-liberty</alias>
-                                    <name>ivargrimstad/${project.artifactId}:liberty</name>
+                                    <name>groundbreaker-duke/${project.artifactId}:liberty</name>
                                     <build>
                                         <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
                                         <from>ibmcom/ibmjava:8-jre-alpine</from>
@@ -258,7 +257,6 @@
 
             <properties>
                 <version.payara.micro>5.183</version.payara.micro>
-                <assembly.file.postfix>payara</assembly.file.postfix>
             </properties>
 
             <build>
@@ -287,7 +285,7 @@
                             <images>
                                 <image>
                                     <alias>${project.artifactId}-payara</alias>
-                                    <name>ivargrimstad/${project.artifactId}:payara</name>
+                                    <name>groundbreaker-duke/${project.artifactId}:payara</name>
                                     <build>
                                         <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
                                         <from>payara/micro:5.183</from>
@@ -309,6 +307,82 @@
                     </plugin>
                 </plugins>
             </build>
+        </profile>
+
+        <profile>
+            <id>tomee</id>
+
+            <properties>
+                <microprofile.version>1.3</microprofile.version>
+            </properties>
+
+            <dependencies>
+                <dependency>
+                    <groupId>org.apache.geronimo.config</groupId>
+                    <artifactId>geronimo-config-impl</artifactId>
+                    <version>1.1</version>
+                </dependency>
+            </dependencies>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.tomee.maven</groupId>
+                        <artifactId>tomee-maven-plugin</artifactId>
+                        <version>8.0.0-M1</version>
+                        <configuration>
+                            <warFile>${project.build.directory}/${project.build.finalName}.war</warFile>
+                            <tomeeClassifier>webprofile</tomeeClassifier>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>io.fabric8</groupId>
+                        <artifactId>docker-maven-plugin</artifactId>
+                        <version>${version.docker-maven-plugin}</version>
+                        <configuration>
+                            <images>
+                                <image>
+                                    <alias>${project.artifactId}-tomee</alias>
+                                    <name>groundbreaker-duke/${project.artifactId}:tomee</name>
+                                    <build>
+                                        <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
+                                        <from>ibmcom/ibmjava:8-jre-alpine</from>
+                                        <assembly>
+                                            <permissions>ignore</permissions>
+                                            <basedir>/</basedir>
+                                            <inline>
+                                                <files>
+                                                    <file>
+                                                        <source>
+                                                            ${project.build.directory}/${project.build.finalName}-exec.jar
+                                                        </source>
+                                                        <outputDirectory>/opt</outputDirectory>
+                                                    </file>
+                                                </files>
+                                            </inline>
+                                        </assembly>
+                                        <entryPoint>
+                                            <arg>java</arg>
+                                            <arg>-Djava.net.preferIPv4Stack=true</arg>
+                                            <arg>-jar</arg>
+                                            <arg>/opt/${project.build.finalName}-exec.jar</arg>
+                                        </entryPoint>
+                                    </build>
+                                </image>
+                            </images>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+
         </profile>
 
     </profiles>
