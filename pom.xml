@@ -120,6 +120,11 @@
                                             <arg>/opt/${project.build.finalName}-thorntail.jar</arg>
                                         </entryPoint>
                                     </build>
+                                    <run>
+                                        <env>
+                                            <color>blue</color>
+                                        </env>
+                                    </run>
                                 </image>
                             </images>
                         </configuration>

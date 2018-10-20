@@ -1,2 +1,22 @@
 = Dukes's Stone Processor
 
+== Stones
+
+
+* Space - Blue +
+Thorntail
+
+* Reality - Red +
+Liberty
+
+* Power - Purple +
+Payara
+
+* Soul - Orange +
+TomEE
+
+* Mind - Yellow +
+Helidon (in https://github.com/ivargrimstad/dukes-stone-processor-jar)
+
+* Time - Green +
+KumuluzEE (in https://github.com/ivargrimstad/dukes-stone-processor-jar)

@@ -19,13 +19,13 @@ spec:
     spec:
       containers:
       - name: dukes-stone-processor
-        image: groundbreaker-duke/dukes-stone-processor:liberty
+        image: groundbreaker-duke/dukes-stone-processor:tomee
         env:
         - name: color
-          value: red
+          value: orange
         ports:
         - name: http
-          containerPort: 9080
+          containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
