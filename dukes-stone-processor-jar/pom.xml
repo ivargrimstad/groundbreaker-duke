@@ -113,38 +113,6 @@
                         </executions>
                     </plugin>
                     <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-resources-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>copy-dockerfile</id>
-                                <phase>process-resources</phase>
-                                <goals>
-                                    <goal>copy-resources</goal>
-                                </goals>
-                                <configuration>
-                                    <outputDirectory>${project.build.directory}</outputDirectory>
-                                    <resources>
-                                        <resource>
-                                            <directory>src/main/docker</directory>
-                                            <filtering>true</filtering>
-                                            <includes>
-                                                <include>Dockerfile</include>
-                                            </includes>
-                                        </resource>
-                                        <resource>
-                                            <filtering>true</filtering>
-                                            <directory>src/main/k8s</directory>
-                                            <includes>
-                                                <include>app.yaml</include>
-                                            </includes>
-                                        </resource>
-                                    </resources>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
                         <groupId>io.fabric8</groupId>
                         <artifactId>docker-maven-plugin</artifactId>
                         <version>${version.docker-maven-plugin}</version>
