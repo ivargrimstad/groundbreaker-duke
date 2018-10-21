@@ -21,8 +21,8 @@ spec:
       - name: dukes-stone-processor
         image: groundbreaker-duke/dukes-stone-processor:helidon
         env:
-        - name: color
-          value: yellow
+        - name: stone
+          value: mind
         ports:
         - name: http
           containerPort: 7001
