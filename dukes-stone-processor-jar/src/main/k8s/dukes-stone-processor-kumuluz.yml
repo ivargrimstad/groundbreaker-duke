@@ -1,0 +1,43 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: dukes-stone-processor
+  labels:
+    app: dukes-stone-processor
+    visualize: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dukes-stone-processor
+  template:
+    metadata:
+      labels:
+        app: dukes-stone-processor
+        version: "v1"
+        vusualize: "true"
+    spec:
+      containers:
+      - name: dukes-stone-processor
+        image: groundbreaker-duke/dukes-stone-processor:liberty
+        env:
+        - name: color
+          value: green
+        ports:
+        - name: http
+          containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dukes-stone-processor
+  labels:
+    app: dukes-stone-processor
+    visualize: "true"
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: http
+  selector:
+    app: dukes-stone-processor
