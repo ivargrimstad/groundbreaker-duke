@@ -21,8 +21,8 @@ spec:
       - name: dukes-stone-processor
         image: groundbreaker-duke/dukes-stone-processor:tomee
         env:
-        - name: color
-          value: orange
+        - name: stone
+          value: soul
         ports:
         - name: http
           containerPort: 8080
