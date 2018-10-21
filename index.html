@@ -1,0 +1,138 @@
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <title>Infinity Gauntlet</title>
+
+  <style>
+html, body {
+    height:100%;
+    width:100%;
+    margin:0;
+    padding:0;
+    border:0;
+}
+.empty-glove, .full-glove {
+    min-width:100%;
+    min-height:100%;
+    margin:0;
+    padding:0;
+    border:0;
+}
+.empty-glove, .soul-stone, .reality-stone, .space-stone, .power-stone, .time-stone, .mind-stone {
+    background-image:url('images/Glove-v2-Empty-White.png');
+    background-repeat:no-repeat;
+    background-position:center top;
+    background-attachment:fixed;
+    background-size:cover;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+}
+.full-glove {
+    background-image:url('images/Glove-v2-Full-White.png');
+    background-repeat:no-repeat;
+    background-position:center top;
+    background-attachment:fixed;
+    background-size:cover;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+}
+.soul-stone {
+    position:absolute;
+    top:10%;
+    left:65%;
+    border-radius:40%;
+    padding:45px;
+    text-align:center;
+}
+.reality-stone {
+    position:absolute;
+    top:19.5%;
+    left:65.8%;
+    border-radius:40%;
+    padding:45px;
+    text-align:center;
+}
+.space-stone {
+    position:absolute;
+    top:37%;
+    left:66.5%;
+    border-radius:40%;
+    padding:52px;
+    text-align:center;
+}
+.power-stone {
+    position:absolute;
+    top:49%;
+    left:66.5%;
+    border-radius:40%;
+    padding:52px;
+    text-align:center;
+}
+.time-stone {
+    position:absolute;
+    top:78%;
+    left:52%;
+    border-radius:40%;
+    padding:45px;
+    text-align:center;
+}
+.mind-stone {
+    position:absolute;
+    top:22%;
+    left:50%;
+    border-radius:40%;
+    padding:100px;
+    text-align:center;
+}
+  </style>
+
+</head>
+
+<body>
+  <div class="empty-glove">
+    <div class="full-glove">
+      <div id="soul" class="soul-stone"></div>
+      <div id="reality" class="reality-stone"></div>
+      <div id="space" class="space-stone"></div>
+      <div id="power" class="power-stone"></div>
+      <div id="time" class="time-stone"></div>
+      <div id="mind" class="mind-stone"></div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+
+      // Adjust URLs for each service deployment
+      setTimeout(processStone, 2000, "http://localhost:8080/stones");
+      <!--setTimeout(processStone, 2000, "http://localhost:8080/stones");-->
+      <!--setTimeout(processStone, 2000, "http://localhost:8080/stones");-->
+      <!--setTimeout(processStone, 2000, "http://localhost:8080/stones");-->
+      <!--setTimeout(processStone, 2000, "http://localhost:8080/stones");-->
+      <!--setTimeout(processStone, 2000, "http://localhost:8080/stones");-->
+
+      function processStone(url) {
+        $.getJSON(url, function(res) {
+          if (res.name == "none") {
+            setTimeout(processStone, 3000, url);
+          } else {
+            $('#' + res.name).removeClass(res.name + '-stone');
+          }
+        })
+        .fail(function() {
+          setTimeout(processStone, 3000, url);
+        });
+      }
+
+    });
+</script>
+
+</body>
+
+</html>
