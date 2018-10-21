@@ -16,7 +16,7 @@ Payara
 TomEE
 
 * Mind - Yellow +
-Helidon (in https://github.com/ivargrimstad/dukes-stone-processor-jar)
+Helidon 
 
 * Time - Green +
-KumuluzEE (in https://github.com/ivargrimstad/dukes-stone-processor-jar)
+KumuluzEE 
