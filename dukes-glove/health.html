@@ -1,0 +1,93 @@
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <title>Health Endpoints</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+
+<table border="2" cellpadding="3" cellspacing="2" style="">
+  <tr>
+    <th><strong>Processor</strong></th>
+    <th><strong>Status</strong></th>
+    <th><strong>Health Details</strong></th>
+  </tr>
+  <tr id="thorntail" class="table-info">
+    <td><strong>Thorntail</strong></td>
+    <td id="thorntail-status"></td>
+    <td id="thorntail-reason"></td>
+  </tr>
+  <tr id="tomee" class="table-info">
+    <td><strong>TomEE</strong></td>
+    <td id="tomee-status"></td>
+    <td id="tomee-reason"></td>
+  </tr>
+  <tr id="openliberty" class="table-info">
+    <td><strong>OpenLiberty</strong></td>
+    <td id="openliberty-status"></td>
+    <td id="openliberty-reason"></td>
+  </tr>
+  <tr id="payara" class="table-info">
+    <td><strong>Payara</strong></td>
+    <td id="payara-status"></td>
+    <td id="payara-reason"></td>
+  </tr>
+  <tr id="helidon" class="table-info">
+    <td><strong>Helidon</strong></td>
+    <td id="helidon-status"></td>
+    <td id="helidon-reason"></td>
+  </tr>
+  <tr id="kumuluzee" class="table-info">
+    <td><strong>KumuluzEE</strong></td>
+    <td id="kumuluzee-status"></td>
+    <td id="kumukuzee-reason"></td>
+  </tr>
+</table>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function() {
+
+      // Adjust URLs for each service deployment
+      setTimeout(processHealth, 100, "http://thorntail:8100/health", "thorntail");
+      setTimeout(processHealth, 100, "http://tomee:8200/health", "tomee");
+      setTimeout(processHealth, 100, "http://openliberty:8300/health", "openliberty");
+      setTimeout(processHealth, 100, "http://payara:8400/health", "payara");
+      setTimeout(processHealth, 100, "http://helidon:8500/health", "helidon");
+      setTimeout(processHealth, 100, "http://kumuluzee:8600/health", "kumuluzee");
+
+      function processHealth(url, id) {
+        $.getJSON(url, function(res) {
+          if (res.outcome == "DOWN") {
+            $('#' + id + '-status').text("200");
+            $('#' + id).attr("class", "table-danger");
+          } else if (res.outcome == "UP") {
+            $('#' + id + '-status').text("200");
+            $('#' + id).attr("class", "table-success");
+            document.getElementById(id + '-reason').innerHTML = '<a target="_blank" href="' + url + '">DETAILS</a>';
+          }
+          setTimeout(processHealth, 1000, url, id);
+        })
+        .fail(function(jqXHR) {
+          $('#' + id + '-status').text("404");
+          $('#' + id).attr("class", "table-danger");
+          if (jqXHR.status == 503) {
+            document.getElementById(id + '-reason').innerHTML = '<a target="_blank" href="' + url + '">DETAILS</a>';
+          }
+          setTimeout(processHealth, 1000, url, id);
+        });
+      }
+
+    });
+</script>
+
+</body>
+</html>
