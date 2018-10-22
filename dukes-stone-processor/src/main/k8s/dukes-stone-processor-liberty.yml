@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: dukes-stone-processor
-        image: groundbreaker-duke/dukes-stone-processor:liberty
+        image: groundbreakerduke/dukes-stone-processor:liberty
         env:
         - name: stone
           value: reality

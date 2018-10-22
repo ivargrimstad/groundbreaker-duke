@@ -2,10 +2,9 @@
 
     <featureManager>
         <feature>microProfile-1.4</feature>
-        <feature>microProfile-1.4</feature>
     </featureManager>
 
-    <httpEndpoint  httpPort="9080" httpsPort="9443"
+    <httpEndpoint  httpPort="8080" httpsPort="9443"
                   id="defaultHttpEndpoint" host="*" />
 
     <quickStartSecurity userName="duke" userPassword="duke"/>

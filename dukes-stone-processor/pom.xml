@@ -95,7 +95,7 @@
                             <images>
                                 <image>
                                     <alias>${project.artifactId}-thorntail</alias>
-                                    <name>groundbreaker-duke/${project.artifactId}:thorntail</name>
+                                    <name>groundbreakerduke/${project.artifactId}:thorntail</name>
                                     <build>
                                         <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
                                         <from>jboss/base-jdk:8</from>
@@ -216,7 +216,7 @@
                             <images>
                                 <image>
                                     <alias>${project.artifactId}-liberty</alias>
-                                    <name>groundbreaker-duke/${project.artifactId}:liberty</name>
+                                    <name>groundbreakerduke/${project.artifactId}:liberty</name>
                                     <build>
                                         <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
                                         <from>ibmcom/ibmjava:8-jre-alpine</from>
@@ -290,7 +290,7 @@
                             <images>
                                 <image>
                                     <alias>${project.artifactId}-payara</alias>
-                                    <name>groundbreaker-duke/${project.artifactId}:payara</name>
+                                    <name>groundbreakerduke/${project.artifactId}:payara</name>
                                     <build>
                                         <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
                                         <from>payara/micro:5.183</from>
@@ -349,7 +349,7 @@
                             <images>
                                 <image>
                                     <alias>${project.artifactId}-tomee</alias>
-                                    <name>groundbreaker-duke/${project.artifactId}:tomee</name>
+                                    <name>groundbreakerduke/${project.artifactId}:tomee</name>
                                     <build>
                                         <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
                                         <from>ibmcom/ibmjava:8-jre-alpine</from>

@@ -120,7 +120,7 @@
                             <images>
                                 <image>
                                     <alias>helidon</alias>
-                                    <name>groundbreaker-duke/${project.artifactId}:helidon</name>
+                                    <name>groundbreakerduke/dukes-stone-processor:helidon</name>
                                     <build>
                                         <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
                                         <from>openjdk:8-jre-alpine</from>
@@ -291,7 +291,7 @@
                             <images>
                                 <image>
                                     <alias>kumuluz</alias>
-                                    <name>groundbreaker-duke/${project.artifactId}:kumuluz</name>
+                                    <name>groundbreakerduke/dukes-stone-processor:kumuluz</name>
                                     <build>
                                         <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
                                         <from>openjdk:8-jre-alpine</from>
