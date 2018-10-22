@@ -19,10 +19,20 @@ public class StonesResource {
     @ConfigProperty(name = "stone", defaultValue = "none")
     private String infinityStone;
 
+    @Inject
+    @ConfigProperty(name = "quality", defaultValue = "0")
+    private int quality;
+
     @GET
     @Produces(APPLICATION_JSON)
     public Response getStone() {
         Stone stone = new Stone(infinityStone);
+
+        try {
+            Thread.sleep(quality * 1_000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         return Response.ok(stone).build();
     }

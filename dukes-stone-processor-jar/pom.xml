@@ -33,6 +33,8 @@
         <profile>
             <id>helidon</id>
 
+            <activation><activeByDefault>true</activeByDefault></activation>
+
             <properties>
                 <package>io.helidon.examples.quickstart.mp</package>
                 <mainClass>duke.groundbreaker.Main</mainClass>
