@@ -11,12 +11,12 @@ Thorntail
 * Reality - Red +
 Liberty
 
- docker run -it -p 8080:8080 -e "stone=space" -e "quality=5" groundbreakerduke/dukes-stone-processor:payara
+ docker run -it -p 8080:8080 -e "stone=reality" -e "quality=5" groundbreakerduke/dukes-stone-processor:liberty
 
 * Power - Purple +
 Payara
 
- docker run -it -p 8080:8080 -e "stone=reality" -e "quality=5" groundbreakerduke/dukes-stone-processor:liberty
+ docker run -it -p 8080:8080 -e "stone=power" -e "quality=5" groundbreakerduke/dukes-stone-processor:payara
 
 * Soul - Orange +
 TomEE
