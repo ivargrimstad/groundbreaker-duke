@@ -6,29 +6,29 @@
 * Space - Blue +
 Thorntail
 
- docker run -it -p 8080:8080 -e "name=space" groundbreakerduke/dukes-stone-processor:thorntail
+ docker run -it -p 8080:8080 -e "stone=space" -e "quality=5" groundbreakerduke/dukes-stone-processor:thorntail
 
 * Reality - Red +
 Liberty
 
- docker run -it -p 8080:8080 -e "stone=space" groundbreakerduke/dukes-stone-processor:thorntail
+ docker run -it -p 8080:8080 -e "stone=space" -e "quality=5" groundbreakerduke/dukes-stone-processor:thorntail
 
 * Power - Purple +
 Payara
 
- docker run -it -p 8080:8080 -e "stone=reality" groundbreakerduke/dukes-stone-processor:liberty
+ docker run -it -p 8080:8080 -e "stone=reality" -e "quality=5" groundbreakerduke/dukes-stone-processor:liberty
 
 * Soul - Orange +
 TomEE
 
- docker run -it -p 8080:8080 -e "stone=soul" groundbreakerduke/dukes-stone-processor:tomee
+ docker run -it -p 8080:8080 -e "stone=soul" -e "quality=5" groundbreakerduke/dukes-stone-processor:tomee
 
 * Mind - Yellow +
 Helidon
 
- docker run -it -p 8080:8080 -e "stone=mind" groundbreakerduke/dukes-stone-processor:helidon
+ docker run -it -p 8080:8080 -e "stone=mind" -e "quality=5" groundbreakerduke/dukes-stone-processor:helidon
 
 * Time - Green +
 KumuluzEE
 
- docker run -it -p 8080:8080 -e "stone=time" groundbreakerduke/dukes-stone-processor:kumuluz
+ docker run -it -p 8080:8080 -e "stone=time" -e "quality=5" groundbreakerduke/dukes-stone-processor:kumuluz
