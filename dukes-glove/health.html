@@ -56,13 +56,12 @@
 <script>
     $(document).ready(function() {
 
-      // Adjust URLs for each service deployment
-      setTimeout(processHealth, 100, "http://thorntail:8100/health", "thorntail");
-      setTimeout(processHealth, 100, "http://tomee:8200/health", "tomee");
-      setTimeout(processHealth, 100, "http://openliberty:8300/health", "openliberty");
-      setTimeout(processHealth, 100, "http://payara:8400/health", "payara");
-      setTimeout(processHealth, 100, "http://helidon:8500/health", "helidon");
-      setTimeout(processHealth, 100, "http://kumuluzee:8600/health", "kumuluzee");
+      setTimeout(processHealth, 100, "http://jcp-labs-01:8100/health", "thorntail");
+      setTimeout(processHealth, 100, "http://jcp-labs-03:8200/health", "tomee");
+      setTimeout(processHealth, 100, "http://jcp-labs-06:8300/health", "openliberty");
+      setTimeout(processHealth, 100, "http://jcp-labs-05:8400/health", "payara");
+      setTimeout(processHealth, 100, "http://jcp-labs-04:8500/health", "helidon");
+      setTimeout(processHealth, 100, "http://jcp-labs-02:8600/health", "kumuluzee");
 
       function processHealth(url, id) {
         $.getJSON(url, function(res) {
