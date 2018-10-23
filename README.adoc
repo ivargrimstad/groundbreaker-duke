@@ -32,3 +32,11 @@ Helidon
 KumuluzEE
 
  docker run -it -p 8080:8080 -e "stone=time" -e "quality=5" groundbreakerduke/dukes-stone-processor:kumuluz
+
+## Run UI 
+
+Run Chrome as follows to disable CORS:
+ 
+```
+google-chrome --disable-web-security --user-data-dir=keynote dukes-glove/index.html
+```

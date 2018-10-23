@@ -110,12 +110,12 @@ html, body {
     $(document).ready(function() {
 
       // Adjust URLs for each service deployment
-      setTimeout(processStone, 2000, "http://localhost:8080/stones");
-      <!--setTimeout(processStone, 2000, "http://localhost:8080/stones");-->
-      <!--setTimeout(processStone, 2000, "http://localhost:8080/stones");-->
-      <!--setTimeout(processStone, 2000, "http://localhost:8080/stones");-->
-      <!--setTimeout(processStone, 2000, "http://localhost:8080/stones");-->
-      <!--setTimeout(processStone, 2000, "http://localhost:8080/stones");-->
+      setTimeout(processStone, 2000, "http://thorntail:8100/stones");
+      setTimeout(processStone, 2000, "http://tomee:8200/stones");
+      setTimeout(processStone, 2000, "http://openliberty:8300/stones");
+      setTimeout(processStone, 2000, "http://payara:8400/stones");
+      setTimeout(processStone, 2000, "http://helidon:8500/stones");
+      setTimeout(processStone, 2000, "http://kumuluzee:8600/stones");
 
       function processStone(url) {
         $.getJSON(url, function(res) {
