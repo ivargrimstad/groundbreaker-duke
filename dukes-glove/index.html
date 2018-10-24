@@ -109,24 +109,25 @@ html, body {
   <script>
     $(document).ready(function() {
 
-      // Adjust URLs for each service deployment
-      setTimeout(processStone, 2000, "http://localhost:8080/stones");
-      <!--setTimeout(processStone, 2000, "http://localhost:8080/stones");-->
-      <!--setTimeout(processStone, 2000, "http://localhost:8080/stones");-->
-      <!--setTimeout(processStone, 2000, "http://localhost:8080/stones");-->
-      <!--setTimeout(processStone, 2000, "http://localhost:8080/stones");-->
-      <!--setTimeout(processStone, 2000, "http://localhost:8080/stones");-->
+//TODO Add something to check whether all stones have been loaded. If they have, have a delay and then replace page with black background glove
+
+      setTimeout(processStone, 5000, "http://jcp-labs-01:8100/stones");
+      setTimeout(processStone, 5000, "http://jcp-labs-03:8200/stones");
+      setTimeout(processStone, 5000, "http://jcp-labs-06:8300/stones");
+      setTimeout(processStone, 5000, "http://jcp-labs-05:8400/stones");
+      setTimeout(processStone, 5000, "http://jcp-labs-04:8500/stones");
+      setTimeout(processStone, 5000, "http://jcp-labs-02:8600/stones");
 
       function processStone(url) {
         $.getJSON(url, function(res) {
           if (res.name == "none") {
-            setTimeout(processStone, 3000, url);
+            setTimeout(processStone, 10000, url);
           } else {
             $('#' + res.name).removeClass(res.name + '-stone');
           }
         })
         .fail(function() {
-          setTimeout(processStone, 3000, url);
+          setTimeout(processStone, 5000, url);
         });
       }
 
