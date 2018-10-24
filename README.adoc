@@ -1,34 +1,46 @@
 = Dukes's Stone Processor
 
+Starting Chrome on MacOSX:
+
+open -a Google\ Chrome --args --disable-web-security --user-data-dir=/Users/ken/codeone
+
+Logging into "Pi":
+
+Copy dc.sh and login.sh to User root. Alias login.ssh to ssh
+
+Run:
+
+  ssh jcp-labs-01
+
 == Stones
 
 
-* Space - Blue +
+* Mind - Yellow +
 Thorntail
 
- docker run -it -p 8080:8080 -e "stone=space" -e "quality=5" groundbreakerduke/dukes-stone-processor:thorntail
+ /dc.sh thorntail mind
 
 * Reality - Red +
 Liberty
 
- docker run -it -p 8080:8080 -e "stone=reality" -e "quality=5" groundbreakerduke/dukes-stone-processor:liberty
+ /dc.sh openliberty reality
 
 * Power - Purple +
 Payara
 
- docker run -it -p 8080:8080 -e "stone=power" -e "quality=5" groundbreakerduke/dukes-stone-processor:payara
+ /dc.sh payara power
 
 * Soul - Orange +
 TomEE
 
- docker run -it -p 8080:8080 -e "stone=soul" -e "quality=5" groundbreakerduke/dukes-stone-processor:tomee
+ /dc.sh tomee soul
 
-* Mind - Yellow +
+* Space - Blue +
 Helidon
 
- docker run -it -p 8080:8080 -e "stone=mind" -e "quality=5" groundbreakerduke/dukes-stone-processor:helidon
+ /dc.sh helidon space
 
 * Time - Green +
 KumuluzEE
 
- docker run -it -p 8080:8080 -e "stone=time" -e "quality=5" groundbreakerduke/dukes-stone-processor:kumuluz
+ /dc.sh kumuluzee time
