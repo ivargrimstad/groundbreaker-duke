@@ -21,7 +21,7 @@ html, body {
     border:0;
 }
 .empty-glove, .soul-stone, .reality-stone, .space-stone, .power-stone, .time-stone, .mind-stone {
-    background-image:url('images/Glove-v2-Empty-White.png');
+    background-image:url('images/Glove-Empty.jpg');
     background-repeat:no-repeat;
     background-position:center top;
     background-attachment:fixed;
@@ -31,7 +31,7 @@ html, body {
     -o-background-size:cover;
 }
 .full-glove {
-    background-image:url('images/Glove-v2-Full-White.png');
+    background-image:url('images/Glove-Full.jpg');
     background-repeat:no-repeat;
     background-position:center top;
     background-attachment:fixed;
@@ -42,39 +42,39 @@ html, body {
 }
 .soul-stone {
     position:absolute;
-    top:10%;
-    left:65%;
+    top:23%;
+    left:61%;
     border-radius:40%;
-    padding:45px;
+    padding:35px;
     text-align:center;
 }
 .reality-stone {
     position:absolute;
-    top:19.5%;
-    left:65.8%;
+    top:30.8%;
+    left:61.4%;
     border-radius:40%;
-    padding:45px;
+    padding:38px;
     text-align:center;
 }
 .space-stone {
     position:absolute;
-    top:37%;
-    left:66.5%;
+    top:41%;
+    left:61.5%;
     border-radius:40%;
-    padding:52px;
+    padding:45px;
     text-align:center;
 }
 .power-stone {
     position:absolute;
-    top:49%;
-    left:66.5%;
+    top:51%;
+    left:61.5%;
     border-radius:40%;
-    padding:52px;
+    padding:45px;
     text-align:center;
 }
 .time-stone {
     position:absolute;
-    top:78%;
+    top:68%;
     left:52%;
     border-radius:40%;
     padding:45px;
@@ -82,10 +82,10 @@ html, body {
 }
 .mind-stone {
     position:absolute;
-    top:22%;
-    left:50%;
+    top:33%;
+    left:52%;
     border-radius:40%;
-    padding:100px;
+    padding:70px;
     text-align:center;
 }
   </style>
@@ -108,8 +108,6 @@ html, body {
 
   <script>
     $(document).ready(function() {
-
-//TODO Add something to check whether all stones have been loaded. If they have, have a delay and then replace page with black background glove
 
       setTimeout(processStone, 5000, "http://jcp-labs-01:8100/stones");
       setTimeout(processStone, 5000, "http://jcp-labs-03:8200/stones");
